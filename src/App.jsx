@@ -317,7 +317,7 @@ function App() {
     <div className="contact">
       <p>📧 support.infrastack24@gmail.com</p>
       <p>📞 +91 78208 98344</p>
-      <p>🌐 Linux • AWS • Kubernetes • OpenShift</p>
+      <p>🌐 Linux • AWS • Kubernetes • Scripting </p>
     </div>
   </section>
   {/* FOOTER */}
