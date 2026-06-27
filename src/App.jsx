@@ -312,7 +312,7 @@ function App() {
         placeholder="Tell us about your project"
         defaultValue={""}
       />
-      <button>Send Inquiry</button>
+      <button>Send Query</button>
     </div>
     <div className="contact">
       <p>📧 support.infrastack24@gmail.com</p>
