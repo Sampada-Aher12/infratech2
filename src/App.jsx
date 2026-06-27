@@ -315,7 +315,7 @@ function App() {
       <button>Send Inquiry</button>
     </div>
     <div className="contact">
-      <p>📧 support@infra24.com</p>
+      <p>📧 support.infrastack24@gmail.com</p>
       <p>📞 +91 78208 98344</p>
       <p>🌐 Linux • AWS • Kubernetes • OpenShift</p>
     </div>
@@ -325,7 +325,7 @@ function App() {
     <h3>Infravora Technologies</h3>
     <p>Cloud • Linux • AWS • Kubernetes • OpenShift</p>
     <br />
-    <p>support@infra24.com</p>
+    <p>support.infrastack24@gmail.com</p>
     <br />
     <p>© 2026 All Rights Reserved</p>
   </footer>
