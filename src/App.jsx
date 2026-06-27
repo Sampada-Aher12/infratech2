@@ -5,6 +5,7 @@ import './index.css';
 
 function App() {
   const form = useRef();
+const [selectedTech, setSelectedTech] = useState(null);
   const sendEmail = (e) => {
   e.preventDefault();
 
@@ -15,16 +16,22 @@ function App() {
       form.current,
       "gQaVKW7issbc2C0Q1"
     )
-    .then(() => {
+    .then((result) => {
+      console.log("Success:", result);
       alert("Message Sent Successfully!");
+      form.current.reset();
     })
     .catch((error) => {
-      console.log(error);
-      alert("Failed to send message.");
+      console.error("EmailJS Error");
+      console.error("Status:", error.status);
+      console.error("Text:", error.text);
+      console.error(error);
+
+      alert(`Error ${error.status}: ${error.text}`);
     });
 };
 
-const [selectedTech, setSelectedTech] = useState(null);
+
 
 const techData = {
   linux: {
