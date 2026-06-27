@@ -1,16 +1,31 @@
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
 import './index.css';
 
 
 function App() {
+  const form = useRef();
+  const sendEmail = (e) => {
+  e.preventDefault();
+
+  emailjs
+    .sendForm(
+      "service_vtvv0jd",
+      "template_v7v150d",
+      form.current,
+      "gQaVKW7issbc2C0Q1"
+    )
+    .then(() => {
+      alert("Message Sent Successfully!");
+    })
+    .catch((error) => {
+      console.log(error);
+      alert("Failed to send message.");
+    });
+};
   return (
-    <>  <meta charSet="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Infravora Technologies</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="style.css" />
+    <>
+ 
   {/* NAVBAR */}
   <nav>
     <div className="logo">Infravora Technologies</div>
@@ -301,25 +316,52 @@ function App() {
     </div>
   </section>
   {/* CONTACT */}
-  <section id="contact">
-    <h2 className="title">Contact Us</h2>
-    <div className="contact-form">
-      <input type="text" placeholder="Your Name" />
-      <input type="email" placeholder="Your Email" />
-      <input type="text" placeholder="Company Name" />
-      <textarea
-        rows={6}
-        placeholder="Tell us about your project"
-        defaultValue={""}
-      />
-      <button>Send Query</button>
-    </div>
-    <div className="contact">
-      <p>📧 support.infrastack24@gmail.com</p>
-      <p>📞 +91 78208 98344</p>
-      <p>🌐 Linux • AWS • Kubernetes • Scripting </p>
-    </div>
-  </section>
+<section id="contact">
+  <h2 className="title">Contact Us</h2>
+
+  <form
+    ref={form}
+    onSubmit={sendEmail}
+    className="contact-form"
+  >
+    <input
+      type="text"
+      name="from_name"
+      placeholder="Your Name"
+      required
+    />
+
+    <input
+      type="email"
+      name="from_email"
+      placeholder="Your Email"
+      required
+    />
+
+    <input
+      type="text"
+      name="company"
+      placeholder="Company Name"
+    />
+
+    <textarea
+      name="message"
+      rows={6}
+      placeholder="Tell us about your project"
+      required
+    ></textarea>
+
+    <button type="submit">
+      Send Query
+    </button>
+  </form>
+
+  <div className="contact">
+    <p>📧 support.infrastack24@gmail.com</p>
+    <p>📞 +91 78208 98344</p>
+    <p>🌐 Linux • AWS • Kubernetes • Scripting</p>
+  </div>
+</section>
   {/* FOOTER */}
   <footer>
     <h3>Infravora Technologies</h3>
