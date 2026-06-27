@@ -1,5 +1,5 @@
 import emailjs from "@emailjs/browser";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import './index.css';
 
 
@@ -22,6 +22,138 @@ function App() {
       console.log(error);
       alert("Failed to send message.");
     });
+};
+
+const [selectedTech, setSelectedTech] = useState(null);
+
+const techData = {
+  linux: {
+    icon: "🐧",
+    title: "Linux",
+    category: "Operating System",
+    description:
+      "Linux is an open-source operating system widely used for servers, cloud computing, DevOps, and enterprise environments.",
+    tags: ["Ubuntu", "RHEL", "CentOS", "Shell"],
+    use: "Used for server administration, scripting, networking, and cloud infrastructure."
+  },
+
+  aws: {
+    icon: "☁️",
+    title: "AWS",
+    category: "Cloud Platform",
+    description:
+      "Amazon Web Services provides scalable cloud computing services like EC2, S3, IAM, VPC, RDS, and Lambda.",
+    tags: ["EC2", "S3", "IAM", "VPC"],
+    use: "Used for hosting applications, storage, backup, and cloud infrastructure."
+  },
+
+  ccna: {
+    icon: "🌐",
+    title: "CCNA",
+    category: "Networking",
+    description:
+      "Cisco Certified Network Associate covers routing, switching, VLANs, IP addressing, and network security.",
+    tags: ["Routing", "Switching", "Subnetting"],
+    use: "Used for designing and troubleshooting enterprise networks."
+  },
+
+  kubernetes: {
+    icon: "⚙️",
+    title: "Kubernetes",
+    category: "Container Orchestration",
+    description:
+      "Kubernetes automates deployment, scaling, and management of containerized applications.",
+    tags: ["Pods", "Deployments", "Services"],
+    use: "Used for container orchestration in production environments."
+  },
+
+  openshift: {
+    icon: "🔴",
+    title: "OpenShift",
+    category: "Container Platform",
+    description:
+      "OpenShift is Red Hat's enterprise Kubernetes platform with enhanced security and developer tools.",
+    tags: ["Red Hat", "Containers", "CI/CD"],
+    use: "Used for enterprise application deployment."
+  },
+
+  ansible: {
+    icon: "🤖",
+    title: "Ansible",
+    category: "Automation",
+    description:
+      "Ansible automates server configuration, application deployment, and IT workflows.",
+    tags: ["Playbooks", "YAML", "Automation"],
+    use: "Used for configuration management and infrastructure automation."
+  },
+
+  scripting: {
+    icon: "📜",
+    title: "Shell Scripting",
+    category: "Programming",
+    description:
+      "Shell scripting automates repetitive Linux administration tasks.",
+    tags: ["Bash", "Automation"],
+    use: "Used for automation and task scheduling."
+  },
+
+  mysql: {
+    icon: "🗄️",
+    title: "MySQL",
+    category: "Database",
+    description:
+      "MySQL is a relational database management system used in web applications.",
+    tags: ["SQL", "Database"],
+    use: "Used to store and manage structured data."
+  },
+
+  "github-actions": {
+    icon: "🔄",
+    title: "GitHub Actions",
+    category: "CI/CD",
+    description:
+      "GitHub Actions automates software build, test, and deployment workflows.",
+    tags: ["CI", "CD", "GitHub"],
+    use: "Used for continuous integration and deployment."
+  },
+
+  ubuntu: {
+    icon: "🟠",
+    title: "Ubuntu",
+    category: "Linux Distribution",
+    description:
+      "Ubuntu is one of the most popular Linux distributions for servers and desktops.",
+    tags: ["Linux", "Ubuntu"],
+    use: "Used in cloud servers and development."
+  },
+
+  grafana: {
+    icon: "📊",
+    title: "Grafana",
+    category: "Monitoring",
+    description:
+      "Grafana visualizes infrastructure and application metrics through dashboards.",
+    tags: ["Monitoring", "Dashboards"],
+    use: "Used for infrastructure monitoring."
+  },
+
+  nginx: {
+    icon: "🟩",
+    title: "NGINX",
+    category: "Web Server",
+    description:
+      "NGINX is a high-performance web server and reverse proxy server.",
+    tags: ["Web Server", "Reverse Proxy"],
+    use: "Used for load balancing and web hosting."
+  }
+};
+
+const openModal = (tech) => {
+  setSelectedTech(techData[tech]);
+};
+
+const closeModal = () => {
+  setSelectedTech(null);
 };
   return (
     <>
@@ -143,84 +275,141 @@ function App() {
       </div>
     </div>
   </section>
-  {/* TECHNOLOGIES SECTION */}
-  <section id="technologies">
-    <h2 className="title">Technologies</h2>
-    <p
-      style={{
-        textAlign: "center",
-        color: "#94a3b8",
-        marginBottom: 30,
-        fontSize: 15
-      }}
-    >
-      Click on any technology to learn more
-    </p>
-    <div className="tech">
-      <div className="tech-item" data-tech="linux">
-        <div className="tech-icon">🐧</div>
-        <div className="tech-name">Linux</div>
-      </div>
-      <div className="tech-item" data-tech="aws">
-        <div className="tech-icon">☁️</div>
-        <div className="tech-name">AWS</div>
-      </div>
-      <div className="tech-item" data-tech="ccna">
-        <div className="tech-icon">🌐</div>
-        <div className="tech-name">CCNA</div>
-      </div>
-      <div className="tech-item" data-tech="kubernetes">
-        <div className="tech-icon">⚙️</div>
-        <div className="tech-name">Kubernetes</div>
-      </div>
-      <div className="tech-item" data-tech="openshift">
-        <div className="tech-icon">🔴</div>
-        <div className="tech-name">OpenShift</div>
-      </div>
-      <div className="tech-item" data-tech="ansible">
-        <div className="tech-icon">🤖</div>
-        <div className="tech-name">Ansible</div>
-      </div>
-      <div className="tech-item" data-tech="scripting">
-        <div className="tech-icon">📜</div>
-        <div className="tech-name">Scripting</div>
-      </div>
-      <div className="tech-item" data-tech="mysql">
-        <div className="tech-icon">🗄️</div>
-        <div className="tech-name">MySQL</div>
-      </div>
-      <div className="tech-item" data-tech="github-actions">
-        <div className="tech-icon">🔄</div>
-        <div className="tech-name">GitHub Actions</div>
-      </div>
-      <div className="tech-item" data-tech="ubuntu">
-        <div className="tech-icon">🟠</div>
-        <div className="tech-name">Ubuntu</div>
-      </div>
-      <div className="tech-item" data-tech="grafana">
-        <div className="tech-icon">📊</div>
-        <div className="tech-name">Grafana</div>
-      </div>
-      <div className="tech-item" data-tech="nginx">
-        <div className="tech-icon">🟩</div>
-        <div className="tech-name">NGINX</div>
-      </div>
+<>
+{/* TECHNOLOGIES SECTION */}
+<section id="technologies">
+  <h2 className="title">Technologies</h2>
+
+  <p
+    style={{
+      textAlign: "center",
+      color: "#94a3b8",
+      marginBottom: 30,
+      fontSize: 15,
+    }}
+  >
+    Click on any technology to learn more
+  </p>
+
+  <div className="tech">
+
+    <div className="tech-item" onClick={() => openModal("linux")}>
+      <div className="tech-icon">🐧</div>
+      <div className="tech-name">Linux</div>
     </div>
-  </section>
-  {/* TECH MODAL */}
-  <div className="modal-overlay" id="modal-overlay">
-    <div className="modal" id="tech-modal">
-      <button className="modal-close" id="modal-close">
+
+    <div className="tech-item" onClick={() => openModal("aws")}>
+      <div className="tech-icon">☁️</div>
+      <div className="tech-name">AWS</div>
+    </div>
+
+    <div className="tech-item" onClick={() => openModal("ccna")}>
+      <div className="tech-icon">🌐</div>
+      <div className="tech-name">CCNA</div>
+    </div>
+
+    <div className="tech-item" onClick={() => openModal("kubernetes")}>
+      <div className="tech-icon">⚙️</div>
+      <div className="tech-name">Kubernetes</div>
+    </div>
+
+    <div className="tech-item" onClick={() => openModal("openshift")}>
+      <div className="tech-icon">🔴</div>
+      <div className="tech-name">OpenShift</div>
+    </div>
+
+    <div className="tech-item" onClick={() => openModal("ansible")}>
+      <div className="tech-icon">🤖</div>
+      <div className="tech-name">Ansible</div>
+    </div>
+
+    <div className="tech-item" onClick={() => openModal("scripting")}>
+      <div className="tech-icon">📜</div>
+      <div className="tech-name">Shell Scripting</div>
+    </div>
+
+    <div className="tech-item" onClick={() => openModal("mysql")}>
+      <div className="tech-icon">🗄️</div>
+      <div className="tech-name">MySQL</div>
+    </div>
+
+    <div className="tech-item" onClick={() => openModal("github-actions")}>
+      <div className="tech-icon">🔄</div>
+      <div className="tech-name">GitHub Actions</div>
+    </div>
+
+    <div className="tech-item" onClick={() => openModal("ubuntu")}>
+      <div className="tech-icon">🟠</div>
+      <div className="tech-name">Ubuntu</div>
+    </div>
+
+    <div className="tech-item" onClick={() => openModal("grafana")}>
+      <div className="tech-icon">📊</div>
+      <div className="tech-name">Grafana</div>
+    </div>
+
+    <div className="tech-item" onClick={() => openModal("nginx")}>
+      <div className="tech-icon">🟩</div>
+      <div className="tech-name">NGINX</div>
+    </div>
+
+  </div>
+</section>
+
+{/* TECH MODAL */}
+
+{selectedTech && (
+  <div
+    className="modal-overlay"
+    onClick={closeModal}
+  >
+    <div
+      className="modal"
+      onClick={(e) => e.stopPropagation()}
+    >
+
+      <button
+        className="modal-close"
+        onClick={closeModal}
+      >
         ✕
       </button>
-      <div className="modal-icon" id="modal-icon" />
-      <h2 className="modal-title" id="modal-title" />
-      <p className="modal-category" id="modal-category" />
-      <p className="modal-desc" id="modal-desc" />
-      <div className="modal-tags" id="modal-tags" />
-      <div className="modal-use" id="modal-use" />
+
+      <div className="modal-icon">
+        {selectedTech.icon}
+      </div>
+
+      <h2 className="modal-title">
+        {selectedTech.title}
+      </h2>
+
+      <p className="modal-category">
+        {selectedTech.category}
+      </p>
+
+      <p className="modal-desc">
+        {selectedTech.description}
+      </p>
+
+      <div className="modal-tags">
+        {selectedTech.tags.map((tag) => (
+  <span className="tag" key={tag}>
+    {tag}
+  </span>
+))}
+      </div>
+
+      <div className="modal-use">
+        <strong>Used For:</strong>
+        <br />
+        {selectedTech.use}
+      </div>
+
     </div>
   </div>
+)}
+</>
+
   {/* WHY CHOOSE US */}
   <section>
     <h2 className="title">Why Choose Us</h2>
