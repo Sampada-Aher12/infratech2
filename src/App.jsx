@@ -11,8 +11,8 @@ const [selectedTech, setSelectedTech] = useState(null);
 
   emailjs
     .sendForm(
-      "service_vtvv0jd",
-      "template_v7v150d",
+      "service_7texoyc",
+      "template_f8qokmw",
       form.current,
       "gQaVKW7issbc2C0Q1"
     )
