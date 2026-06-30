@@ -204,7 +204,7 @@ const closeModal = () => {
   {/* HERO SECTION */}
   <section className="hero">
     <div>
-      <h3 className="tagline">Cloud • Linux • DevOps • Automation</h3>
+      <h3 className="tagline">Linux • Cloud(AWS) • CCNA • Automation</h3>
       <h1>
         Infravora <span>Technologies</span>
       </h1>
@@ -238,7 +238,7 @@ const closeModal = () => {
         <p>Uptime Goal</p>
       </div>
       <div className="stat">
-        <h3>50+</h3>
+        <h3>20+</h3>
         <p>Servers Managed</p>
       </div>
       <div className="stat">
@@ -496,7 +496,7 @@ const closeModal = () => {
     <div className="pricing">
       <div className="price-card">
         <h3>Starter</h3>
-        <div className="price">₹5K</div>
+        <div className="price">₹10K</div>
         <p>Linux Support &amp; Troubleshooting</p>
       </div>
       <div className="price-card">
@@ -548,7 +548,7 @@ const closeModal = () => {
     ></textarea>
 
     <button type="submit">
-      Send Query
+      Send Your Inquiry
     </button>
   </form>
 
