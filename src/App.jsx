@@ -553,7 +553,7 @@ const closeModal = () => {
   </form>
 
   <div className="contact">
-    <p>📧 support.infrastack24@gmail.com</p>
+    <p>📧 support.infrastake24@gmail.com</p>
     <p>📞 +91 78208 98344</p>
     <p>🌐 Linux • AWS • Kubernetes • Scripting</p>
   </div>
@@ -563,7 +563,7 @@ const closeModal = () => {
     <h3>Infravora Technologies</h3>
     <p>Cloud • Linux • AWS • Kubernetes • OpenShift</p>
     <br />
-    <p>support.infrastack24@gmail.com</p>
+    <p>support.infrastake24@gmail.com</p>
     <br />
     <p>© 2026 All Rights Reserved</p>
   </footer>
